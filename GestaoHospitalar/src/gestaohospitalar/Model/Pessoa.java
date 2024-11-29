@@ -4,7 +4,7 @@
  */
 package gestaohospitalar.Model;
 public class Pessoa {
-    private int contadorId  = 0;
+    private static int contadorId  = 1;
     private int id;
     private String nome;
     private String cpf;
@@ -56,11 +56,11 @@ public class Pessoa {
     }
     
     public  void exibir(){
-        System.out.println("Id          : " + id);
-        System.out.println("Nome        : " + nome);
-        System.out.println("CPF         : " + cpf);
-        System.out.println("Endereco    : " + endereco);
-        System.out.println("Telefone    : " + telefone);
+        System.out.println("\tId: " + id);
+        System.out.println("\tNome: " + nome);
+        System.out.println("\tCPF: " + cpf);
+        System.out.println("\tEndereco: " + endereco);
+        System.out.println("\tTelefone: " + telefone);
     }
     
 }

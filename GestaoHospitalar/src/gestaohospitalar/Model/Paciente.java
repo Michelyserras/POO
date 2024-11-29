@@ -8,7 +8,7 @@ public class Paciente extends Pessoa {
     public String nomeConvenio;
     public String numeroConvenio;
 
-    public Paciente(String nomeConvenio, String numeroConvenio, String nome, String cpf, String endereco, String telefone) {
+    public Paciente(String nome, String cpf, String endereco, String telefone, String nomeConvenio, String numeroConvenio) {
         super(nome, cpf, endereco, telefone);
         this.nomeConvenio = nomeConvenio;
         this.numeroConvenio = numeroConvenio;
@@ -33,8 +33,9 @@ public class Paciente extends Pessoa {
     @Override
     public void exibir(){
         super.exibir();
-        System.out.println("Nome do convenio   : " + nomeConvenio);
-        System.out.println("Numero do convenio : " + numeroConvenio);
+        System.out.println("\tNome do convenio: " + nomeConvenio);
+        System.out.println("\tNumero do convenio: " + numeroConvenio);
+        System.out.println("");
     }
    
 
