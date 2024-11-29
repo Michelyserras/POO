@@ -1,9 +1,37 @@
 package gestaohospitalar.Model;
 
-public class Medico {
+public class Medico extends Pessoa {
+    private String especialidade;
+    private String crm;
+
+    public Medico(String especialidade, String crm, String nome, String cpf, String endereco, String telefone) {
+        super(nome, cpf, endereco, telefone);
+        this.especialidade = especialidade;
+        this.crm = crm;
+    }
+
+    public String getEspecialidade() {
+        return especialidade;
+    }
+
+    public void setEspecialidade(String especialidade) {
+        this.especialidade = especialidade;
+    }
+
+    public String getCrm() {
+        return crm;
+    }
+
+    public void setCrm(String crm) {
+        this.crm = crm;
+    }
+
+    @Override
+    public void exibir(){
+        super.exibir();
+        System.out.println("CRM            : " + crm);
+        System.out.println("Especilidade   : " + especialidade );
+    }
     
-    public String nome;
-    public String crm;
-    public int id;
     
 }

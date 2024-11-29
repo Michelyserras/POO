@@ -4,34 +4,40 @@
  */
 package gestaohospitalar.Model;
 
-public class Paciente {
-    public String nome;
-    public String identidade;
-    public String dataNascimento;
-    public String endereco;
-    
-     public Paciente(String nome, String identidade, String dataNascimento, String endereco) {
-        this.nome = nome;
-        this.identidade = identidade;
-        this.dataNascimento = dataNascimento;
-        this.endereco = endereco;
+public class Paciente extends Pessoa {
+    public String nomeConvenio;
+    public String numeroConvenio;
+
+    public Paciente(String nomeConvenio, String numeroConvenio, int id, String nome, String cpf, String endereco, String telefone) {
+        super(nome, cpf, endereco, telefone);
+        this.nomeConvenio = nomeConvenio;
+        this.numeroConvenio = numeroConvenio;
     }
 
-    public String getNome() {return nome;}
+    public String getNomeConvenio() {
+        return nomeConvenio;
+    }
 
-    public void setNome(String nome) {this.nome = nome;}
+    public void setNomeConvenio(String nomeConvenio) {
+        this.nomeConvenio = nomeConvenio;
+    }
 
-    public String getIdentidade() {return identidade;}
+    public String getNumeroConvenio() {
+        return numeroConvenio;
+    }
 
-    public void setIdentidade(String identidade) {this.identidade = identidade;}
+    public void setNumeroConvenio(String numeroConvenio) {
+        this.numeroConvenio = numeroConvenio;
+    }
+    
+    @Override
+    public void exibir(){
+        super.exibir();
+        System.out.println("Nome do convenio   : " + nomeConvenio);
+        System.out.println("Numero do convenio : " + numeroConvenio);
+    }
+   
 
-    public String getDataNascimento() {return dataNascimento; }
-
-    public void setDataNascimento(String dataNascimento) {this.dataNascimento = dataNascimento; }
-
-    public String getEndereco() {return endereco;}
-
-    public void setEndereco(String endereco) { this.endereco = endereco;}
-     
+  
     
 }
