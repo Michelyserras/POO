@@ -4,10 +4,6 @@
  */
 package gestaohospitalar.Dao;
 
-/**
- *
- * @author aluno
- */
-public class ProntuarioDao {
+public class EstadosDao {
     
 }

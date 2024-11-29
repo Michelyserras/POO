@@ -8,7 +8,7 @@ public class Paciente extends Pessoa {
     public String nomeConvenio;
     public String numeroConvenio;
 
-    public Paciente(String nomeConvenio, String numeroConvenio, int id, String nome, String cpf, String endereco, String telefone) {
+    public Paciente(String nomeConvenio, String numeroConvenio, String nome, String cpf, String endereco, String telefone) {
         super(nome, cpf, endereco, telefone);
         this.nomeConvenio = nomeConvenio;
         this.numeroConvenio = numeroConvenio;
