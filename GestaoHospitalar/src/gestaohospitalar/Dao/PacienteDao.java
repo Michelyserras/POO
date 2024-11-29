@@ -114,7 +114,7 @@ public class PacienteDao {
         }else{
             System.out.println("Lista de Pacientes: \n");
             for (Paciente paciente : pacientesBD.values()) {
-                paciente.exibir(); // Certifique-se de que este método exibe corretamente os dados
+                paciente.exibir(); 
             }  
         }
     }
