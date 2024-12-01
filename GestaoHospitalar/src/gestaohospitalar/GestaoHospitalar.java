@@ -3,21 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package gestaohospitalar;
-import gestaohospitalar.Dao.PacienteDao;
+import gestaohospitalar.Service.PacienteService;
 import java.util.Scanner;
 
 public class GestaoHospitalar {
     
     public static void main(String[] args) {
       int op;
-      PacienteDao pacientesDao = new PacienteDao();
+      PacienteService pacientesService = new PacienteService();
       
       
       do{
        op = menu();
        switch(op){
            case 1->{
-               pacientesDao.menuPaciente();
+               pacientesService.menuPaciente();
            }
            case 2->{
                System.out.println("Sorryyy! Eu ainda nao implementei esse casee");
