@@ -45,7 +45,7 @@ public class MedicoService {
      public void atualizarMedico(){
        int id, op;
       
-       System.out.println("------Atualizaçao Cadastro Medico------");
+       System.out.println("------Atualizacao Cadastro Medico------");
        System.out.println("Informe o id do medico "); 
        id = input.nextInt();
        
@@ -122,7 +122,7 @@ public class MedicoService {
     
     public void excluirMedico(){
      int id;  
-     System.out.println("Informe o id do medico que será excluido: ");
+     System.out.println("Informe o id do medico que sera excluido: ");
      id = input.nextInt();
      Medico medico = medicoDao.buscarMedicoPorId(id);
      if(medico != null){
