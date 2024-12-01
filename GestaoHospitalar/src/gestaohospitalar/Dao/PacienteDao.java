@@ -4,46 +4,15 @@
  */
 package gestaohospitalar.Dao;
 import gestaohospitalar.Model.Paciente;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
-public class PacienteDao {
-    private Map<Integer, Paciente> pacientesBD;
-    private Scanner input;
-
-    public PacienteDao() {
-        this.pacientesBD = new HashMap<>();
-        input = new Scanner(System.in);
-    }
+public interface PacienteDao{
     
-    public void cadastrarPaciente(Paciente paciente){
-        pacientesBD.put(paciente.getId(), paciente); //adicionando ele a lista de pacientes
-    };
-
-
-    public Map<Integer,Paciente> listarPacientes(){
-       return pacientesBD;
-    }
+    public void cadastrarPaciente(Paciente paciente);
+    public Map<Integer,Paciente> listarPacientes();
+    public Paciente buscarPacientePorId(int id);
+    public void excluirPaciente(int id);
+    public boolean atualizarPaciente(int id, Paciente pacienteAtualizado);
     
-    public Paciente buscarPacientePorId(int id){
-        return pacientesBD.get(id);
-    }
-    
-    public void excluirPaciente(int id){
-        pacientesBD.remove(id); //remove o paciente da lista
-        
-    }
-    
-    public boolean atualizarPaciente(int id, Paciente pacienteAtualizado) {
-        if (pacientesBD.containsKey(id)) {
-            pacientesBD.put(id, pacienteAtualizado);
-            return true;
-        }
-        return false;
-    }
-   /*
-    
-      */ 
 }
    

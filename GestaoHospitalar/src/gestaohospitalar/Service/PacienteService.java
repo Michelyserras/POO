@@ -3,12 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package gestaohospitalar.Service;
-import gestaohospitalar.Dao.PacienteDao;
+import gestaohospitalar.Dao.PacienteDaoImpl;
 import gestaohospitalar.Model.Paciente;
 import java.util.Scanner;
 
 public class PacienteService {
-    PacienteDao pacienteDao = new PacienteDao();
+    PacienteDaoImpl pacienteDao = new PacienteDaoImpl();
     private Scanner input;
 
     public PacienteService() {

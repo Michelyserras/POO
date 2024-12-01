@@ -9,27 +9,16 @@ import java.util.Map;
 import java.util.Scanner;
 
 
-public class MedicoDao {
-    private Map<Integer, Medico> medicosBD;
-    private Scanner input;
+public interface MedicoDao {
+   
     
-    public MedicoDao(){
-        this.medicosBD = new HashMap<>();
-        input = new Scanner(System.in);
-    }
+    public void cadastrarMedico(Medico medico);
     
-    public void cadastrarMedico(){
-    }
+    public boolean atualizarMedico(int id, Medico medico );
     
-    public void atualizarMedico(){
-    }
+    public Map<Integer,Medico> listarMedicos();
     
-    public void listarMedicos(){
-    }
+    public Medico buscarMedicoPorId(int id);
     
-    public void buscarMedicoPorId(){
-    }
-    
-    public void excluirMedico(){
-    }
+    public void excluirMedico(int id);
 }
