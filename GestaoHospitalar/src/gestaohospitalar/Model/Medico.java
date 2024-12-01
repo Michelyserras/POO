@@ -29,8 +29,8 @@ public class Medico extends Pessoa {
     @Override
     public void exibir(){
         super.exibir();
-        System.out.println("CRM            : " + crm);
-        System.out.println("Especilidade   : " + especialidade );
+        System.out.println("\tCRM: " + crm);
+        System.out.println("\tEspecilidade: " + especialidade );
     }
     
     

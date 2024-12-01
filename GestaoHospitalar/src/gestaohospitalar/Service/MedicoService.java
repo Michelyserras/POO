@@ -18,7 +18,7 @@ public class MedicoService {
     public void cadastrarMedico(){
         String nome, endereco, cpf, telefone, especialidade, crm;
         
-         System.out.println("------Cadastro Paciente------ \n");
+        System.out.println("------Cadastro Medico------ \n");
         
         System.out.print("\tNome: ");
         nome = input.nextLine();
@@ -32,10 +32,10 @@ public class MedicoService {
         System.out.print("\tTelefone: ");
         telefone = input.nextLine();
         
-        System.out.print("\tNome do Convenio: ");
+        System.out.print("\tEspecialidade: ");
         especialidade = input.nextLine();
         
-        System.out.print("\tNumero do Convenio: ");
+        System.out.print("\tCrm: ");
         crm = input.nextLine();
         
         Medico medico = new Medico(nome, cpf, endereco, telefone, especialidade, crm); //instanciando um novo paciente
@@ -51,7 +51,7 @@ public class MedicoService {
        
        Medico medico = medicoDao.buscarMedicoPorId(id);
        if(medico != null){
-                // depois vai exibir o menu de dados que podem ser alterados e enquanto o usuario não digitar 0 vai ser possivel alterar o dado desse paciente
+                // depois vai exibir o menu de dados que podem ser alterados e enquanto o usuario não digitar 0 vai ser possivel alterar o dado 
                 do{
                     System.out.println("Escolha o dado que voce deseja alterar o nome: ");
                     System.out.println("\t [0] Voltar  \n\t [1] Nome \n\t [2] CPf \n\t [3] Endereco \n\t [4] Telefone \n\t [5] Especialidade \n\t [6] CRM");
@@ -90,7 +90,7 @@ public class MedicoService {
                     }
                 }while(op != 0);
             }else{
-                 System.out.println("O paciente informado nao existe");
+                 System.out.println("O medico informado nao existe");
             }
                 
     }
@@ -109,7 +109,7 @@ public class MedicoService {
     
     public void buscarMedicoPorId(){
         int id;  
-        System.out.println("Informe o id do paciente que será excluido: ");
+        System.out.println("Informe o id do Medico: ");
         id = input.nextInt();
         
         Medico medicoExiste = medicoDao.buscarMedicoPorId(id) ;

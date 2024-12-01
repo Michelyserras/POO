@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package gestaohospitalar;
+import gestaohospitalar.Service.MedicoService;
 import gestaohospitalar.Service.PacienteService;
 import java.util.Scanner;
 
@@ -11,6 +12,7 @@ public class GestaoHospitalar {
     public static void main(String[] args) {
       int op;
       PacienteService pacientesService = new PacienteService();
+      MedicoService medicoService = new MedicoService();
       
       
       do{
@@ -20,7 +22,7 @@ public class GestaoHospitalar {
                pacientesService.menuPaciente();
            }
            case 2->{
-               System.out.println("Sorryyy! Eu ainda nao implementei esse casee");
+               medicoService.menuMedico();
            }
            case 3->{
                System.out.println("Sorryyy! Eu ainda nao implementei esse casee");
