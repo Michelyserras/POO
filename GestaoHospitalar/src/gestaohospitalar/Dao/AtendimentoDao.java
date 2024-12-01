@@ -4,10 +4,18 @@
  */
 package gestaohospitalar.Dao;
 
-/**
- *
- * @author aluno
- */
-public class AtendimentoDao {
+import gestaohospitalar.Model.Atendimento;
+import java.util.Map;
+
+public interface AtendimentoDao {
+        
+    public void cadastrarAtendimento(Atendimento atendimento);
     
+    public boolean atualizarAtendimento(int id, Atendimento atendimento );
+    
+    public Map<Integer,Atendimento> listarAtendimentos();
+    
+    public Atendimento buscarAtendimentoPorId(int id);
+    
+    public void excluirAtendimento(int id);
 }

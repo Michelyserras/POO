@@ -4,10 +4,12 @@
  */
 package gestaohospitalar.Model.Estado;
 
-public class EstadoGenerico extends EstadoAtendimento {
-    
-    public EstadoGenerico(String nomeEstado) {
-        super(nomeEstado);
+/**
+ *
+ * @author miche
+ */
+public class AltaClinica extends EstadoAtendimento{
+    public AltaClinica(){
+        super("Alta Clinica");
     }
-    
 }

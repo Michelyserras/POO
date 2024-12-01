@@ -22,14 +22,11 @@ public abstract class EstadoAtendimento {
     public String getNomeEstado() {
         return nomeEstado;
     }
-
-    public void setNomeEstado(String nomeEstado) {
-        this.nomeEstado = nomeEstado;
-    }
-    
-    
+        
     public void exibir(){
+        System.out.println("ID: " + id);
         System.out.println("Estado : " + nomeEstado);
+        System.out.println(" ");
     }
    
     

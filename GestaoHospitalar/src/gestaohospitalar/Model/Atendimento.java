@@ -6,16 +6,27 @@ package gestaohospitalar.Model;
 public class Atendimento {
     private int contadorId = 0;
     private int id;
+    private String data;
     private int pacienteId;
     private int medicoId;
     private int estadoId;
 
-    public Atendimento(int pacienteId, int medicoId, int estadoId) {
+    public Atendimento(String data,int pacienteId, int medicoId, int estadoId) {
+        this.data = data;
         this.id = contadorId++;
         this.pacienteId = pacienteId;
         this.medicoId = medicoId;
         this.estadoId = estadoId;
     }
+    
+    public String getData(){
+        return data;
+    }
+    
+    public void setData(String data){
+        this.data = data;
+    }
+    
 
     public int getId(){
         return id;
