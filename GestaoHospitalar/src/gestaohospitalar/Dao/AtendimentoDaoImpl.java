@@ -46,5 +46,6 @@ public class AtendimentoDaoImpl implements AtendimentoDao {
     public void excluirAtendimento(int id) {
         atendimentoBD.remove(id);
     }
-    
+
+   
 }

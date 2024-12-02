@@ -18,4 +18,5 @@ public interface AtendimentoDao {
     public Atendimento buscarAtendimentoPorId(int id);
     
     public void excluirAtendimento(int id);
+    
 }

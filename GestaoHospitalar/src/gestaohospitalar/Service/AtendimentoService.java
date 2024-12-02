@@ -6,6 +6,7 @@ package gestaohospitalar.Service;
 import gestaohospitalar.Dao.AtendimentoDaoImpl;
 import gestaohospitalar.Dao.MedicoDaoImpl;
 import gestaohospitalar.Dao.PacienteDaoImpl;
+import gestaohospitalar.Dao.EstadosDaoImpl;
 
 public class AtendimentoService {
     AtendimentoDaoImpl atendimento = new AtendimentoDaoImpl();
