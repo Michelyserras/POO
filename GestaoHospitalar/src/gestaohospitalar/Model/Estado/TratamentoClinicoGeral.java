@@ -4,6 +4,8 @@
  */
 package gestaohospitalar.Model.Estado;
 
+import gestaohospitalar.Model.EstadoAtendimento;
+
 public class TratamentoClinicoGeral extends EstadoAtendimento{
     public TratamentoClinicoGeral(){
         super("Tratamento Clinico Geral");

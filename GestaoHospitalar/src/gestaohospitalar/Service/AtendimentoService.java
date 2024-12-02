@@ -3,11 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package gestaohospitalar.Service;
+import gestaohospitalar.Dao.AtendimentoDaoImpl;
+import gestaohospitalar.Dao.MedicoDaoImpl;
+import gestaohospitalar.Dao.PacienteDaoImpl;
 
-/**
- *
- * @author aluno
- */
 public class AtendimentoService {
+    AtendimentoDaoImpl atendimento = new AtendimentoDaoImpl();
+    MedicoDaoImpl medico = new MedicoDaoImpl();
+    PacienteDaoImpl paciente = new PacienteDaoImpl();
     
 }

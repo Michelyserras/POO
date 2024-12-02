@@ -4,6 +4,8 @@
  */
 package gestaohospitalar.Model.Estado;
 
+import gestaohospitalar.Model.EstadoAtendimento;
+
 /**
  *
  * @author miche

@@ -12,11 +12,9 @@ import java.util.Scanner;
 
 public class AtendimentoDaoImpl implements AtendimentoDao {
     private Map<Integer, Atendimento> atendimentoBD;
-    private Scanner input;
     
     public AtendimentoDaoImpl(){
         atendimentoBD = new HashMap<>();
-        input = new Scanner(System.in);
     }
 
     @Override

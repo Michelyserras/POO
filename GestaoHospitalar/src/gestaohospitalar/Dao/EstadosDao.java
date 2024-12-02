@@ -4,6 +4,16 @@
  */
 package gestaohospitalar.Dao;
 
-public class EstadosDao {
+import gestaohospitalar.Model.EstadoAtendimento;
+import java.util.Map;
+
+public interface EstadosDao {
+
+    public boolean atualizarEstado(int id, EstadoAtendimento estado );
     
+    public Map<Integer,EstadoAtendimento> listarEstados();
+    
+    public EstadoAtendimento buscarEstadoPorId(int id);
+    
+    public void excluirEstado(int id);
 }

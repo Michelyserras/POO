@@ -11,11 +11,9 @@ import java.util.Scanner;
 
 public class MedicoDaoImpl implements MedicoDao {
      private Map<Integer, Medico> medicosBD;
-    private Scanner input;
 
     public MedicoDaoImpl(){
         this.medicosBD = new HashMap<>();
-        input = new Scanner(System.in);
     }
     
     
