@@ -19,6 +19,7 @@ public abstract class EstadoAtendimento {
         return id;
     }
 
+    
     public String getNomeEstado() {
         return nomeEstado;
     }

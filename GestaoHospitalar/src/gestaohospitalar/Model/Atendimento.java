@@ -10,15 +10,25 @@ public class Atendimento {
     private int pacienteId;
     private int medicoId;
     private int estadoId;
+    private String nomeEstado;
 
-    public Atendimento(String data,int pacienteId, int medicoId, int estadoId) {
+    public Atendimento(String data,int pacienteId, int medicoId, int estadoId, String nomeEstado) {
         this.data = data;
         this.id = contadorId++;
         this.pacienteId = pacienteId;
         this.medicoId = medicoId;
         this.estadoId = estadoId;
+        this.nomeEstado = nomeEstado;
     }
     
+    public String getNomeEstado(){
+        return nomeEstado;
+    }
+    
+    public void serNomeEstado(String nomeEstado){
+        this.nomeEstado = nomeEstado;
+    }
+           
     public String getData(){
         return data;
     }
@@ -58,7 +68,7 @@ public class Atendimento {
     
     public void exibir(){
         System.out.println("Atendimento          : " + id);
-        System.out.println("Estado do Atendimento: " + estadoId);
+        System.out.println("Estado do Atendimento: " + estadoId + " - " + nomeEstado);
         System.out.println("Paciente             : " + pacienteId);
         System.out.println("Medico               : " + medicoId);
     }
