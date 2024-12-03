@@ -14,7 +14,6 @@ import atv_pazi_pizzaria.service.PizzaService;
 import atv_pazi_pizzaria.service.DiaTrabalhoService;
 import java.util.*;
 
-//Alunos: Fernando Antonio e Michely Serras
 public class ATV_Pazi_Pizzaria {
 
     public static void main(String[] args) {
