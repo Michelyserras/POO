@@ -27,28 +27,39 @@ public class QuebraCabeca {
              case 1 ->{
                  ExibirPecas(pecas);
              }
-             case 2 ->{
-                 do{
-                    System.out.println("Informe uma peca: (Ex: Peca 1-9)");
-                    numPeca1 = input.nextLine();
-                    System.out.println("Informe a segunda peca: (Ex: Peca 1-9)");
-                    numPeca2 = input.nextLine();
-                    System.out.println("Informe um dos lados da borda: (Ex: Borda 1-3)");
-                    num1 = input.nextInt();
-                    System.out.println("Informe um dos lados da borda: (Ex: Borda 1-3");
-                    num2 = input.nextInt();
-                    for(Peca peca: pecas){
-                        Peca peca1 = null, peca2 = null;
-                        if(peca.getDescricao().equals(numPeca1)){
-                            peca1 = peca;
-                        }
-                        if(peca.getDescricao().equals(numPeca2)){
-                            peca2 = peca;
-                        }
-                        System.out.println("Encaixe entre peça e peça ): " + peca1.encaixaCom(peca2, num1, num2));
-                    }
-                 
-                }while(num1 == 0 || num2 == 0 );
+             case 2 -> {
+    do {
+        System.out.println("Informe uma peça: (Ex: Peca 1-9)");
+        numPeca1 = input.nextLine();
+        System.out.println("Informe a segunda peça: (Ex: Peca 1-9)");
+        numPeca2 = input.nextLine();
+        System.out.println("Informe um dos lados da borda da primeira peça (1-4):");
+        num1 = input.nextInt();
+        System.out.println("Informe um dos lados da borda da segunda peça (1-4):");
+        num2 = input.nextInt();
+        input.nextLine(); 
+
+        Peca peca1 = null, peca2 = null;
+
+        
+        for (Peca peca : pecas) {
+            if (peca.getDescricao().equalsIgnoreCase(numPeca1)) {
+                peca1 = peca;
+            }
+            if (peca.getDescricao().equalsIgnoreCase(numPeca2)) {
+                peca2 = peca;
+            }
+        }
+
+        if (peca1 != null && peca2 != null) {
+            boolean encaixe = peca1.encaixaCom(peca2, num1 - 1, num2 - 1);
+            System.out.println("Encaixe entre as peças: " + encaixe);
+        } else {
+            System.out.println("Peças inválidas. Verifique as descrições informadas.");
+        }
+    } while (num1 < 1 || num1 > 4 || num2 < 1 || num2 > 4);
+     }
+
              }
              
             default ->{System.out.println("Opcao invalida");}
