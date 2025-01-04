@@ -4,13 +4,9 @@
  */
 package model;
 
-/**
- *
- * @author miche
- */
-public class Periodioco extends Livro {
+public class Periodico extends Livro {
     
-    public Periodioco(String tit) {
+    public Periodico(String tit) {
         super(tit);
     }
     

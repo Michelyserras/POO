@@ -92,16 +92,16 @@ public class Livro {
         String st = new String();
         
         if(isDisponivel()){
-            return (titulo + "Disponivel");
+            return (titulo + " Disponivel ");
         }
         if(isEmprestado()){
-            st = "Retirado por: " + retiradoPor + 
-                    " em " + dma(dtEmprestimo) + 
-                    "ate" + dma(dtDevolucao);
+            st = "Retirado por:  " + retiradoPor + 
+                    "  em  " + dma(dtEmprestimo) + 
+                    " ate " + dma(dtDevolucao);
         }else{
             st = "Bloqueado por: " + retiradoPor + 
                     " em " + dma(dtBloqueio) + 
-                    "ate" + dma(dtDesbloqueio);
+                    " ate " + dma(dtDesbloqueio);
         }
         return(titulo + st);
     
@@ -112,7 +112,7 @@ public class Livro {
         cal.setTime(dt);
         
         return(cal.get(Calendar.DATE) + "/" + 
-                cal.get(Calendar.MONTH) + "/" +
+                (cal.get(Calendar.MONTH)+1) + "/" +
                 cal.get(Calendar.YEAR));
     }
     

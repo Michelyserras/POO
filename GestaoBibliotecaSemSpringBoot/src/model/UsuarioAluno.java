@@ -40,7 +40,7 @@ public class UsuarioAluno extends Usuario {
     
     @Override
     public String toString(){
-        return("Aluno: " + getNome());
+        return(" Aluno: " + getNome());
     }
     
 }

@@ -4,17 +4,22 @@
  */
 package gestaobibliotecasemspringboot;
 
+import java.io.IOException;
+
 /**
  *
  * @author miche
  */
 public class GestaoBibliotecaSemSpringBoot {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        System.out.println("Gestão biblioteca");
+        try{
+            Cap9.init();
+        }catch (IOException e) {
+            System.err.println("Erro durante a execução do sistema: " + e.getMessage());
+        }
+        System.out.println("Sistema encerrado.");
     }
     
 }
