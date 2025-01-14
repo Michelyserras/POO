@@ -1,47 +1,40 @@
 package Controller;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import Model.Livro;
-import Model.Usuario;
 import Service.LivroService;
-import jakarta.validation.Valid;
 
 @Controller
+@RequestMapping("/livros") // Prefixo comum para todas as rotas deste controlador
 public class LivroController {
 
     @Autowired
     private LivroService livroService;
 
-    public LivroController(LivroService livroService){
-        this.livroService = livroService;
-    }
-    
-    @GetMapping("/index")
-    public String showBookList(Model model) {
-        model.addAttribute("livros", livroService.listarLivros()); 
-        return "index";
+    // Rota para exibir a página inicial com a lista de livros
+    @GetMapping
+    public String listarLivros(Model model) {
+        model.addAttribute("livros", livroService.listarLivros());
+        return "index"; // Nome do arquivo HTML (src/main/resources/templates/index.html)
     }
 
-    @PostMapping("/adicionarBook")
-    public String cadastrarLivro(@Valid String nome, @Valid int tipo, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            return "add-book"; // Retorna à página de adição em caso de erro
-        } else {
-            livroService.cadastrarLivro(nome, tipo); // Salva o livro no banco de dados
-            return "redirect:/index"; // Redireciona para a página de listagem
-        }
-    }
-
-    @GetMapping("/addBook")
+    // Rota para exibir o formulário de adição de um novo livro
+    @GetMapping("/novo")
     public String mostrarFormularioAdicaoLivro(Model model) {
-        model.addAttribute("livro", new Livro("Titulo inicial")); // Adiciona um novo objeto Livro ao modelo
-        return "add-book";
+        model.addAttribute("livro", new Livro()); // Cria um objeto Livro vazio para o formulário
+        return "add-book"; // Nome do arquivo HTML (src/main/resources/templates/add-book.html)
     }
 
+    // Rota para processar o formulário de adição de livro
+    @PostMapping
+    public String cadastrarLivro(Livro livro) {
+        livroService.cadastrarLivro(livro.getTitulo(), livro.getTipo());
+        return "redirect:/livros"; // Redireciona para a listagem de livros
+    }
 }

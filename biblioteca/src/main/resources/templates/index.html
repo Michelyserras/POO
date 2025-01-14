@@ -2,36 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Lista de Livros</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/livro.css">
 </head>
 <body>
     <h1>Lista de Livros</h1>
-    <div>
-        <h2 th:case="null">No books yet!</h2>
-    </div>
-    <div th:case="*">
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Título</th>
-                    <th>Autor</th>
-                    <th>Tipo</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="livro : ${livros}">
-                    <td th:text="${livro.id}"></td>
-                    <td th:text="${livro.titulo}"></td>
-                    <td th:text="${livro.autor}"></td>
-                    <td th:text="${livro.tipo}"></td>
-                </tr>
-            </tbody>
-        </table>
-    
-
-    </div>
-    
-    <a th:href="@{/addBook}">Adicionar Livro</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Tipo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="livro : ${livros}">
+                <td th:text="${livro.titulo}"></td>
+                <td th:text="${livro.tipo}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/livros/novo}">Adicionar Livro</a>
 </body>
 </html>

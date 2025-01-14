@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import Dao.Livros.LivroDao;
 import Dao.Livros.LivroDaoImpl;
 import Model.Livro;
-import Model.Periodico;
 import jakarta.validation.Valid;
 
 @Service
@@ -18,20 +17,29 @@ public class LivroService {
     @Autowired
     private LivroDao livroRepo;
 
-    public Livro cadastrarLivro(String nome, int tipo) {
+    public Livro cadastrarLivro(String nome, String tipo) {
         Livro livro;
-        if (tipo == 1) {
-            livro = new Livro(nome);
-        } else if (tipo == 2) {
-            livro = new Periodico(nome);
-        } else {
+        if (nome.isEmpty() || tipo.isEmpty()) {
             throw new IllegalArgumentException("Tipo inválido. Use 1 para Livro e 2 para Periódico.");
+        } else{
+            livro = new Livro(nome, tipo);
         }
+
         return livroRepo.save(livro);
     }
 
     public List<Livro> listarLivros() {
         return (List<Livro>) livroRepo.findAll();
+    }
+
+    public Livro updateLivro(Livro livro){
+        livro = livroRepo.findById(livro.getId()).get();
+        if(livro !=  null){
+           return livroRepo.save(livro);
+        }else{
+            throw new Error("Livro não encontrado");
+        }
+
     }
     
     public void excluirLivro(Integer id) {

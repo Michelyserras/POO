@@ -5,17 +5,15 @@
 </head>
 <body>
     <h1>Adicionar Livro</h1>
-    <form th:action="@{/addBook}" th:object="${livro}" method="post">
+    <form th:action="@{/livros}" method="post">
         <label for="titulo">Título:</label>
-        <input type="text" id="titulo" th:field="*{titulo}" /><br/>
-
-        <label for="autor">Autor:</label>
-        <input type="text" id="autor" th:field="*{autor}" /><br/>
-
+        <input type="text" id="titulo" name="titulo" th:value="${livro.titulo}">
+        <br>
         <label for="tipo">Tipo:</label>
-        <input type="text" id="tipo" name="tipo" /><br/>
-
+        <input type="text" id="tipo" name="tipo" th:value="${livro.tipo}">
+        <br>
         <button type="submit">Salvar</button>
     </form>
+    <a th:href="@{/livros}">Voltar</a>
 </body>
 </html>

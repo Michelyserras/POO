@@ -14,6 +14,7 @@ public class Livro {
     private Integer id;
 
     private String titulo;
+    private String tipo;
     private Usuario retiradoPor;
     private Date dtEmprestimo;
     private Date dtDevolucao;
@@ -21,8 +22,14 @@ public class Livro {
     private Date dtBloqueio;
     private Date dtDesbloqueio;
 
-    public Livro(String nome){
+    public Livro(String nome, String tipo){
         this.titulo = nome;
+        this.tipo = tipo;
+    }
+
+    public Livro(){
+        this.titulo = titulo;
+        this.tipo = tipo;
     }
 
     public Integer getId(){
@@ -31,6 +38,14 @@ public class Livro {
 
     public String getTitulo(){
         return titulo;
+    }
+
+    public String getTipo(){
+        return tipo;
+    }
+
+    public void setTipo(String tipo){
+        this.tipo = tipo;
     }
 
     public void setTitulo(String nome){
