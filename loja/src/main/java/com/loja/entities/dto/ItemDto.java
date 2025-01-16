@@ -1,13 +1,13 @@
-package com.loja.dao.dto;
-
-import com.loja.entities.Produto;
+package com.loja.entities.dto;
 
 public class ItemDto {
-     private Long id;
-    private Produto produto;
+    private Long id;
+    private Long produto_id;
     private Integer quantidade;
     private Double precoTotal;
     
+    public ItemDto(){}
+
     public Long getId() {
         return id;
     }
@@ -16,12 +16,12 @@ public class ItemDto {
         this.id = id;
     }
 
-    public Produto getProduto() {
-        return produto;
+    public Long getProdutoId() {
+        return produto_id;
     }
 
-    public void setProduto(Produto produto) {
-        this.produto = produto;
+    public void setProdutoId(Long produto_id) {
+        this.produto_id = produto_id;
     }
 
     public Integer getQuantidade() {

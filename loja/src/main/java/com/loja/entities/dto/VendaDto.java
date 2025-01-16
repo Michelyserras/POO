@@ -1,4 +1,4 @@
-package com.loja.dao.dto;
+package com.loja.entities.dto;
 
 public class VendaDto {
     
