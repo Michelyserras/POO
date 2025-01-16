@@ -13,6 +13,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class ItemDaoJDBC implements ItemDao{
 
+    public ItemDaoJDBC(){
+        criarTabela();
+    }
+
     public void criarTabela() {
         String query = """
             CREATE TABLE IF NOT EXISTS itens (
