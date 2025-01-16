@@ -36,7 +36,7 @@ public class ItemDaoJDBC implements ItemDao{
     }
 
     @Override
-    public void adicionarItem(Item item) {
+    public void adicionarItem(ItemDto item) {
         String query = "INSERT INTO itens (produto_id, quantidade, preco_total) VALUES (?, ?, ?)";
         try (Connection conn = DB.getConnection();
              PreparedStatement ps = conn.prepareStatement(query)) {
@@ -64,7 +64,7 @@ public class ItemDaoJDBC implements ItemDao{
     }
 
     @Override
-    public List<Item> listarItens() {
+    public List<ItemDto> listarItens() {
         String query = "SELECT * FROM itens";
         List<Item> itens = new ArrayList<>();
         try (Connection conn = DB.getConnection();

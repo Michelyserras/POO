@@ -7,7 +7,7 @@ import com.loja.dao.dto.ItemDto;
 
 public interface ItemDao {
     public void adicionarItem(ItemDto item) throws SQLException;
-    public void removerItem(ItemDto item);
+    public void removerItem(Long id);
     public void atualizarItem(ItemDto item);
     public List<ItemDto> listarItens();
 
