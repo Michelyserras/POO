@@ -2,14 +2,14 @@ package com.loja.entities;
 
 public class Item {
     private Long id;
-    private Produto produto;
+    private Long produto_id;
     private Integer quantidade;
     private Double precoTotal;
 
-    
-    public Item(Long id, Produto produto, Integer quantidade, Double precoTotal) {
+    public Item(){}
+    public Item(Long id, Long produto_id, Integer quantidade, Double precoTotal) {
         this.id = id;
-        this.produto = produto;
+        this.produto_id = produto_id;
         this.quantidade = quantidade;
         this.precoTotal = precoTotal;
     }
@@ -22,12 +22,12 @@ public class Item {
         this.id = id;
     }
 
-    public Produto getProduto() {
-        return produto;
+    public Long getProdutoId() {
+        return produto_id;
     }
 
-    public void setProduto(Produto produto) {
-        this.produto = produto;
+    public void setProdutoId(Long produto) {
+        this.produto_id = produto;
     }
 
     public Integer getQuantidade() {

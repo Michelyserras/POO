@@ -1,20 +1,16 @@
 package com.loja.dao;
 
 import java.util.List;
-package com.loja.dao;
 
-import com.loja.model.Item;
 import com.loja.database.DB;
+import com.loja.entities.dto.ItemDto;
+
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.loja.dao.dto.ItemDto;
-import com.loja.database.DB;
-import com.loja.entities.Item;
 
+@Repository
 public class ItemDaoJDBC implements ItemDao{
 
     public void criarTabela() {
@@ -40,7 +36,7 @@ public class ItemDaoJDBC implements ItemDao{
         String query = "INSERT INTO itens (produto_id, quantidade, preco_total) VALUES (?, ?, ?)";
         try (Connection conn = DB.getConnection();
              PreparedStatement ps = conn.prepareStatement(query)) {
-            ps.setLong(1, item.getProduto().getId());
+            ps.setLong(1, item.getProdutoId());
             ps.setInt(2, item.getQuantidade());
             ps.setDouble(3, item.getPrecoTotal());
             ps.execute();
@@ -66,12 +62,12 @@ public class ItemDaoJDBC implements ItemDao{
     @Override
     public List<ItemDto> listarItens() {
         String query = "SELECT * FROM itens";
-        List<Item> itens = new ArrayList<>();
+        List<ItemDto> itens = new ArrayList<>();
         try (Connection conn = DB.getConnection();
              PreparedStatement ps = conn.prepareStatement(query);
              ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
-                Item item = new Item();
+                ItemDto item = new ItemDto();
                 item.setId(rs.getLong("id"));
                 item.setProdutoId(rs.getLong("produto_id"));
                 item.setQuantidade(rs.getInt("quantidade"));
@@ -82,5 +78,10 @@ public class ItemDaoJDBC implements ItemDao{
             System.err.println("Erro ao listar itens: " + e.getMessage());
         }
         return itens;
+    }
+
+    @Override
+    public void atualizarItem(ItemDto item) {
+        throw new UnsupportedOperationException("Unimplemented method 'atualizarItem'");
     }
 }
