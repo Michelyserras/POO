@@ -1,7 +1,5 @@
 package com.loja.dao;
 
-import com.loja.database.DB;
+public interface ItemDao {
 
-public class ItemDao {
-   
 }

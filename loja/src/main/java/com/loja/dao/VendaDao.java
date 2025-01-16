@@ -1,5 +1,5 @@
 package com.loja.dao;
 
-public class VendaDao {
-    
+public interface VendaDao {
+
 }

@@ -1,5 +1,5 @@
 package com.loja.dao;
 
-public class ProdutoDao {
-    
+public interface ProdutoDao {
+
 }
