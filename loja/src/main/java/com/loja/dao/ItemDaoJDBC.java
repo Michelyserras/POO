@@ -3,7 +3,7 @@ package com.loja.dao;
 import java.util.List;
 
 import com.loja.database.DB;
-import com.loja.entities.dto.ItemDto;
+import com.loja.entities.Item;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -36,7 +36,7 @@ public class ItemDaoJDBC implements ItemDao{
     }
 
     @Override
-    public void adicionarItem(ItemDto item) {
+    public void adicionarItem(Item item) {
         String query = "INSERT INTO itens (produto_id, quantidade, preco_total) VALUES (?, ?, ?)";
         try (Connection conn = DB.getConnection();
              PreparedStatement ps = conn.prepareStatement(query)) {
@@ -64,14 +64,14 @@ public class ItemDaoJDBC implements ItemDao{
     }
 
     @Override
-    public List<ItemDto> listarItens() {
+    public List<Item> listarItens() {
         String query = "SELECT * FROM itens";
-        List<ItemDto> itens = new ArrayList<>();
+        List<Item> itens = new ArrayList<>();
         try (Connection conn = DB.getConnection();
              PreparedStatement ps = conn.prepareStatement(query);
              ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
-                ItemDto item = new ItemDto();
+                Item item = new Item();
                 item.setId(rs.getLong("id"));
                 item.setProdutoId(rs.getLong("produto_id"));
                 item.setQuantidade(rs.getInt("quantidade"));
@@ -85,7 +85,7 @@ public class ItemDaoJDBC implements ItemDao{
     }
 
     @Override
-    public void atualizarItem(ItemDto item) {
+    public void atualizarItem(Item item) {
         throw new UnsupportedOperationException("Unimplemented method 'atualizarItem'");
     }
 }

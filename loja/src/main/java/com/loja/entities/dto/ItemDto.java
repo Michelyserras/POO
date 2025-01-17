@@ -6,6 +6,12 @@ public class ItemDto {
     private Integer quantidade;
     private Double precoTotal;
     
+    public ItemDto( Long produto_id, Integer quantidade, Double precoTotal) {
+        this.produto_id = produto_id;
+        this.quantidade = quantidade;
+        this.precoTotal = precoTotal;
+    }
+
     public ItemDto(){}
 
     public Long getId() {

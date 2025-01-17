@@ -3,12 +3,12 @@ package com.loja.dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.loja.entities.dto.ItemDto;
+import com.loja.entities.Item;
 
 public interface ItemDao {
-    public void adicionarItem(ItemDto item) throws SQLException;
+    public void adicionarItem(Item item) throws SQLException;
     public void removerItem(Long id);
-    public void atualizarItem(ItemDto item);
-    public List<ItemDto> listarItens();
+    public void atualizarItem(Item item);
+    public List<Item> listarItens();
 
 }

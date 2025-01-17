@@ -1,10 +1,10 @@
 package com.loja.dao;
 import java.util.List;
-import com.loja.entities.dto.ItemDto;
+import com.loja.entities.Produto;
 
 public interface ProdutoDao {
-    public void adicionarProduto(ProdutoDto item);
-    public void removerItem(Long id);
-    public void atualizarItem(ProdutoDto item);
-    public List<ItemDto> listarItens();
+    public void adicionarProduto(Produto produto);
+    public void removerProduto(Long id);
+    public void atualizarProduto(Produto Produto);
+    public List<Produto> listarProdutos();
 }
