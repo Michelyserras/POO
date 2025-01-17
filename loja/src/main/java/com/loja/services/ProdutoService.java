@@ -14,7 +14,7 @@ public class ProdutoService {
     @Autowired
     public ProdutoDaoJDBC repo;
 
-    public void addProduto(String nome, Double preco, int quantidade, String descricao ) throws SQLException{
+    public void addProduto(String nome, Double preco, Integer quantidade, String descricao ) throws SQLException{
        try {
             Produto pNovo = new Produto( nome, preco, quantidade, descricao);
             repo.adicionarProduto(pNovo);

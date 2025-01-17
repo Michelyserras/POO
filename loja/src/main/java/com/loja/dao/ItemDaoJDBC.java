@@ -19,7 +19,7 @@ public class ItemDaoJDBC implements ItemDao{
 
     public void criarTabela() {
         String query = """
-            CREATE TABLE IF NOT EXISTS itens (
+            CREATE TABLE IF NOT EXISTS loja.itens (
                 id BIGINT AUTO_INCREMENT PRIMARY KEY,
                 produto_id BIGINT NOT NULL,
                 quantidade INT NOT NULL,

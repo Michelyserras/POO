@@ -6,13 +6,23 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
-
+import jakarta.annotation.PostConstruct;
 import com.loja.database.DB;
 import com.loja.entities.Produto;
+
+
 @Repository
 public class ProdutoDaoJDBC implements ProdutoDao{
 
-    public ProdutoDaoJDBC(){
+    private final Connection conn;
+
+    public ProdutoDaoJDBC(Connection conn) {
+        this.conn = conn;
+    }
+
+
+    @PostConstruct
+    public void inicializar(){
         criarTabela();
     }
 
@@ -21,13 +31,12 @@ public class ProdutoDaoJDBC implements ProdutoDao{
             CREATE TABLE IF NOT EXISTS produtos (
                 id BIGINT AUTO_INCREMENT PRIMARY KEY,
                 nome VARCHAR(255) NOT NULL,
-                preco DECIMAL NOT NULL,
+                preco DECIMAL(10,2) NOT NULL,
                 quantidade INT NOT NULL,
                 descricao VARCHAR(255) NOT NULL
             )
         """;
-        try (Connection conn = DB.getConnection();
-             PreparedStatement ps = conn.prepareStatement(query)) {
+        try (PreparedStatement ps = conn.prepareStatement(query)) {
             ps.execute();
             System.out.println("Tabela criada ou já existente.");
         } catch (SQLException e) {
@@ -37,7 +46,7 @@ public class ProdutoDaoJDBC implements ProdutoDao{
 
     @Override
     public void adicionarProduto(Produto produto) throws SQLException {
-        String query = "INSERT INTO proodutos(nome, preco, quantidade, descricao) VALUES (?,?,?,?)";
+        String query = "INSERT INTO produtos (nome, preco, quantidade, descricao) VALUES (?,?,?,?)";
         try(Connection conn = DB.getConnection();
         PreparedStatement ps = conn.prepareStatement(query)){
             ps.setString(1, produto.getNome());
@@ -58,7 +67,7 @@ public class ProdutoDaoJDBC implements ProdutoDao{
        PreparedStatement ps = conn.prepareStatement(query)) {
             ps.setLong(0, id);
             ps.execute();
-            System.out.println("Produto adicionado com sucesso!");
+            System.out.println("Produto removido com sucesso!");
             
        } catch (SQLException e) {
             System.err.println("Erro ao remover produto" + e.getMessage());
