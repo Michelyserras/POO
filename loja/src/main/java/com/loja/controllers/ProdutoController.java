@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.loja.entities.Produto;
+import com.loja.entities.dto.ProdutoDto;
+
 import com.loja.services.ProdutoService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,12 +24,21 @@ public class ProdutoController {
     public ProdutoService service;
 
    @PostMapping("/add")
-   public ResponseEntity<String> postMethodName(@RequestBody Produto produto) {
+   public ResponseEntity<ProdutoDto> postMethodName(@RequestBody Produto produto) {
        try{
               service.addProduto(produto.getNome(), produto.getPreco(), produto.getQuantidadeEstoque(), produto.getDescricao());
-              return ResponseEntity.ok("Produto cadastrado com sucesso");
+              ProdutoDto produtoDto = new ProdutoDto(
+                     "Produto cadastrado com sucesso",
+                     produto.getId(),
+                     produto.getNome(), 
+                     produto.getPreco(), 
+                     produto.getQuantidadeEstoque(), 
+                     produto.getDescricao());
+
+              return ResponseEntity.ok(produtoDto);
        }catch(Exception e){
-              return ResponseEntity.badRequest().body("Erro ao cadastrar produto");
+              ProdutoDto produtoDto = new ProdutoDto("Erro ao cadastrar produto");
+              return ResponseEntity.badRequest().body(produtoDto);
        }
    }
    
