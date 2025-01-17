@@ -20,9 +20,10 @@ public class ProdutoDaoJDBC implements ProdutoDao{
         String query = """
             CREATE TABLE IF NOT EXISTS produtos (
                 id BIGINT AUTO_INCREMENT PRIMARY KEY,
-                produto_id BIGINT NOT NULL,
+                nome VARCHAR(255) NOT NULL,
+                preco DECIMAL NOT NULL,
                 quantidade INT NOT NULL,
-                preco_total DOUBLE NOT NULL
+                descricao VARCHAR(255) NOT NULL
             )
         """;
         try (Connection conn = DB.getConnection();
@@ -35,15 +36,33 @@ public class ProdutoDaoJDBC implements ProdutoDao{
     }
 
     @Override
-    public void adicionarProduto(Produto produto) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'adicionarProduto'");
+    public void adicionarProduto(Produto produto) throws SQLException {
+        String query = "INSERT INTO proodutos(nome, preco, quantidade, descricao) VALUES (?,?,?,?)";
+        try(Connection conn = DB.getConnection();
+        PreparedStatement ps = conn.prepareStatement(query)){
+            ps.setString(1, produto.getNome());
+            ps.setDouble(2, produto.getPreco());
+            ps.setInt(3, produto.getQuantidadeEstoque());
+            ps.setString(4, produto.getDescricao());
+            ps.execute();
+            System.out.println("Produto adicionado com sucesso!");
+        }catch (SQLException e) {
+            System.err.println("Erro ao adicionar produto." + e.getMessage());
+        }
     }
 
     @Override
     public void removerProduto(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removerproduto'");
+       String query = "DELETE FROM produto WHERE ID = ?";
+       try(Connection conn = DB.getConnection();
+       PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setLong(0, id);
+            ps.execute();
+            System.out.println("Produto adicionado com sucesso!");
+            
+       } catch (SQLException e) {
+            System.err.println("Erro ao remover produto" + e.getMessage());
+       }
     }
 
     @Override

@@ -10,8 +10,7 @@ public class Produto {
 
     public Produto() {}
 
-    public Produto(Long id, String nome, Double preco, Integer quantidadeEstoque, String descricao) {
-        this.id = id;
+    public Produto(String nome, Double preco, Integer quantidadeEstoque, String descricao) {
         this.nome = nome;
         this.preco = preco;
         this.quantidadeEstoque = quantidadeEstoque;
